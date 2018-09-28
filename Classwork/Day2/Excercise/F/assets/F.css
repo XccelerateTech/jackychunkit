@@ -10,11 +10,10 @@ html, body {
     font-family: sans-serif;
 }
 
-body {
+.shop {
     background-image: url("images/flowershop.jpg");
     background-repeat: no-repeat;
-    background-size:100% auto;
-    background-position: top 5%;
+    background-size:100% 100%;
 }
 
 header {
@@ -26,12 +25,20 @@ header img {
     height:5%;
 }
 
+#title_container {
+    background-color: rgba(0,0,0,0.7);
+    height:100%;
+    width:100%;
+    padding-bottom:20%;
+}
+
 #title {
     text-align:center;
     font-size:40px;
     color:white;
     padding-top: 20%;
 }
+
 
 #more {
     display: block;
@@ -48,9 +55,8 @@ header img {
 }
 
 
-
 .info {
-    margin-top: 250px;
+    margin-top: 50px;
     margin-left:10%;
     margin-right:10%;
 }
