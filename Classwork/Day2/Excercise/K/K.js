@@ -5,6 +5,9 @@ let thousands = "";
 let tenthousnads = "";
 let hundredthousands = "";
 const decode = (i) => {
+if (i < 100 || i > 999999) {
+    return 'Input should be a number within 100 to 999999';
+} else {
     if (i >= 1) {
         switch (parseInt(i % 10)) {
             case 6: 
@@ -228,4 +231,5 @@ const decode = (i) => {
         }
     }
     return (hundredthousands+tenthousands+thousands+hundreds+tens+ones);
+}
 }
