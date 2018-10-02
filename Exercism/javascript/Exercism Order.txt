@@ -1,0 +1,18 @@
+Hello World
+Two-Fer
+Leap
+RNA Transcription
+Simple Cipher (hard)
+Pangram
+Bob
+Gigasecond
+Space Age
+Prime Factors
+Matrix(hard)
+Linked List
+Pascals Triangle
+Secret Handshake
+Grade School
+Robot Name
+Wordy
+List Ops
