@@ -4,26 +4,67 @@ body {
     font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;
 }
 
-.unscrolled {
-    display:flex;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0) !important;
-}
-
-.scrolled {
-    display:flex;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0) !important;
-    transition: background-color 200ms linear;
-}
 .fixed-top {
-    border-bottom: solid grey;
+    border-bottom: solid #CBC8C7;
     font-weight:500;
 }
 
 .header-link {
     padding:10px;
     color:#CBC8C7;
+    font-weight:900;
+
+}
+
+.header-link:hover {
+    cursor: pointer;
+    color:#F05F40;
+}
+
+.navbar-brand {
+    padding:10px;
+    color:#CBC8C7;
+    font-weight:900;
+}
+
+.navbar-toggler-icon {
+    border: 1px solid #CBC8C7;
+    border-radius: 20%;
+    flex-direction:column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-toggler-icon:hover {
+    background-color:white;
+}
+
+.icon-bar {
+    margin:5px auto;
+    background-color: #888;
+    display: block;
+    width: 22px;
+    height: 3px;
+    border-radius: 1px;
+}
+
+@media only screen and (min-width: 992px) {
+#navbarNav {
+    display:flex;
+    justify-content: flex-end;
+}}
+
+@media only screen and (max-width: 992px) {
+#to-page-top {
+    color: #F05F40 !important;
+}
+.navbar {
+    background-color:white !important;
+}
+.nav-item {
+    color:black;
+}
 }
 
 #page-top {
@@ -131,6 +172,13 @@ body {
 #button-two:active {
     background-color:grey;
 }
+
+#googleThat {
+    text-decoration: none;
+    color:black !important;
+}
+
+
 
 #services {
     padding-top: 100px;

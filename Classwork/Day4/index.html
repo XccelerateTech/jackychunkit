@@ -23,17 +23,31 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="assets/script/jquery-ui-1.12.1.custom/jquery-ui.min.css">
+
+    <script src="assets/script/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar fixed-top unscrolled">
-        <a href="#page-top" class="header-link navbar-brand">THE ONLY BOOTSTRAP PAGE</a>
-        <form class="form-inline">
-            <a href="#about" class="header-link">ABOUT</a>
-            <a href="#services" class="header-link">FOUR ICONS</a>
-            <a href="#portfolio" class="header-link">BULLSHIT</a>
-            <a href="#contact" class="header-link"> CALL ME</a>
-        </form>
+    <nav class="navbar fixed-top navbar-expand-lg">
+        <div>
+        <a id="to-page-top" href="javascript:void(0)" class="navbar-brand">THE ONLY BOOTSTRAP PAGE</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Toggle navigation">
+            <div class="navbar-toggler-icon">
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+                <div class="icon-bar"></div>
+            </div>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+            <li class="nav-item header-link" id="to-about" href="javascript:void(0)">ABOUT</li>
+            <li class="nav-item header-link" id="to-services" href="javascript:void(0)">FOUR ICONS</li>
+            <li class="nav-item header-link" id="to-portfolio" href="javascript:void(0)">BULLSHIT</li>
+            <li class="nav-item header-link" id="to-contact" href="javascript:void(0)">CALL ME</li>
+            </ul>
+        </div>
     </nav>
     <div id="page-top" class="img-fluid">
         <div class="page-top-title">
@@ -63,8 +77,11 @@
             way! There are hundreds of templates to choose from, but go ahead and pick this same exact template from
             the first result on google, edit a few lines, and you're on your way! No one will notice!
         </div>
-        <button href="http://lmgtfy.com/?q=bootstrap+template" class="btn" id="button-two">
+        
+        <button  class="btn" id="button-two">
+            <a target="_blank" id="googleThat" href="http://lmgtfy.com/?q=bootstrap+template">
             GOOGLE THAT SHIT
+        </a>
         </button>
     </div>
     <div id="services">
