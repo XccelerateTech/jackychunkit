@@ -8,7 +8,6 @@
     //splitting the string into ["What","is",number,'operator',number]
     var splitted = input.split(' ');
     var Num1 = '';
-    var operator = '';
     /*
     Test for the input format, if it doesn't match, throw an Error
     first test: if the first two words are 'What' 'is'
