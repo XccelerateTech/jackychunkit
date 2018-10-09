@@ -327,6 +327,10 @@ body {
     opacity:1;
 }
 
+.icons:hover {
+    transform: scale(1.5)
+}
+
 .portfolio-continue {
     display:flex;
     flex-direction: column;
@@ -428,3 +432,4 @@ body {
 #mail:link {
     color:#F05F40;
 }
+
