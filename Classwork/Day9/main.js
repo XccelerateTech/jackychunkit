@@ -1,3 +1,9 @@
+//-----------------------------------------------A-----------------------------------------------//
+console.log($('#row-name'))
+console.log($("tbody tr:nth-child(2)"))
+console.log($('section'))
+console.log($('input[placeholder$="Name"]'))
+//----------------------------------------------B,C-----------------------------------------------//
 // Adding a contact to the contact list
 // Name: Peter
 // telephone: 123456789
@@ -12,6 +18,9 @@ $('h1:eq(0)').html(`&ltYour name&gt's contact list application`)
 // Change the color of the text in the contact list.
 $('tbody').css("color", "blue")
 
+//-----------------------------------------------D-----------------------------------------------//
+
+//calls this function when confirm button at create new contact is clicked
 $('#form1').submit(function (event) {
     event.preventDefault();
     var invalid = false;
@@ -33,6 +42,7 @@ $('#form1').submit(function (event) {
     } else {
         $(`input[name$='phone']`).css("border-color", "initial")
     }
+    //append new row (new contact() to the contact list if the inputs are not invalid
     if (!invalid) {
         var a = event.target.name.value;
         var b = event.target.phone.value;
@@ -46,15 +56,20 @@ $('#form1').submit(function (event) {
         `)};
 });
 
+//declare a global variable outside of a function 'who', which records which row of the contact is clicked on
 var who = new Number;
 // Add a Update Contacts list section for the page which has the same validation as the create contact list.
 $('tbody').on('click','tr',(function () {
+    //assign value to the update contact box
+    /*input's value becomes the text of index(which <td>) 
+    of the children(<tr>) of this element<tbody> being clicked on */
     $(`input[name$='name2']`).val($(this).children(':eq(0)').text());
     $(`input[name$='phone2']`).val($(this).children(':eq(1)').text());
     $(`input[name$='email2']`).val($(this).children(':eq(2)').text());
     who = $(this).index() + 1;
 }));
 
+//calls this function when submit button at update old contact is clicked
 $('#form2').submit(function (event) {
     event.preventDefault();
     var invalid = false;
@@ -81,6 +96,9 @@ $('#form2').submit(function (event) {
         var b = event.target.phone2.value;
         var c = event.target.email2.value;
         alert(`Contact updated! The name is ${a}, phone numer is ${b}, email is ${c}`);
+        //instead of .append() method, this uses .replaceWith() method
+        /*$("tr:eq("+ who + ")") is index number of the element that 
+        we clicked on of <tr>, which we need to reassign the value to*/  
         $("tr:eq(" + who + ")").replaceWith(`
             <tr class="row">
                 <td>${a}</td>
