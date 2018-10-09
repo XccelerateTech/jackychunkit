@@ -1,0 +1,4 @@
+$('#row-name')
+$("tbody tr:nth-child(2)")
+$('section')
+$('input[placeholder$="Name"]')

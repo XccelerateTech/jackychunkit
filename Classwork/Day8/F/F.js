@@ -1,0 +1,1 @@
+(name) => {return document.getElementsByClassName(name)};
