@@ -10,12 +10,6 @@ html, body {
     font-family: sans-serif;
 }
 
-.shop {
-    background-image: url("images/flowershop.jpg");
-    background-repeat: no-repeat;
-    background-size:100% 100%;
-}
-
 header {
     background-color:white;
     height:50px;
@@ -30,6 +24,12 @@ header img {
     flex-direction: row;
     justify-content: flex-end;
     margin-left: 150px;
+}
+
+.shop {
+    background-image: url("images/flowershop.jpg");
+    background-repeat: no-repeat;
+    background-size:100% 100%;
 }
 
 #title_container {
