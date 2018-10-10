@@ -1,24 +1,37 @@
 class Robot {
     constructor() {
         this.name = GenerateName();
-        this.temp = new Array;
     }
-    
     reset() {
-        var newName = GenerateName();
-        if (this.temp.every(function(val){return val !== newName})) {
-            this.name = newName;
-            this.temp.push(this.name);
-        } else {
-            var newName = GenerateName();
-            return;
+        this.name = GenerateName();
+    }
+}
+
+//generating the namelist
+var list = new Array;
+var NameList = function () {
+    for (var i = 0; i < 26; i++) {
+        for (var j = 0; j < 26; j++) {
+            for (var k = 0; k < 10; k++) {
+                for (var l = 0; l < 10; l++) {
+                    for (var m = 0; m < 10; m++) {
+                        list.push(String.fromCharCode(65 + i) + String.fromCharCode(65 + j) + k + l + m);
+                    }
+                }
+            }
         }
     }
-    
 }
 
 GenerateName = () => {
-    return String.fromCharCode( 65 + Math.floor((Math.random())*25)) + String.fromCharCode( 65 + Math.floor((Math.random())*25)) + Math.floor((Math.random())*10) + Math.floor((Math.random())*10) + Math.floor((Math.random())*10);
+    if (list.length == 0) {
+      NameList();
+      //shuffle the namelist
+        for (let i = list.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [list[i], list[j]] = [list[j], list[i]];
+        }
+    }   return list.pop();
 }
 
 module.exports = Robot;
