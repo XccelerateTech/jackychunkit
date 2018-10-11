@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+ 
+        
+        <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+        <script type='text/javascript'>
+            // Important: Place the script tag below the body tag and enclose your code with the $(function) so that the AJAX call is made only once all the DOM elements of the page have loaded.
+            $(function(){ 
+                $.ajax({
+                    url:"data.json",
+                    beforeSend:function(xhr){
+                        // This function will be run before sending ajax.
+                    },
+                    type: "GET",
+                }).done(function(data){
+                    console.log(data);
+                }).fail(function(data){
+                    console.log("This function will be run if the ajax if failed");
+                }).always(function(data){
+                    console.log("This function runs no matter success or fail.");
+                });
+            });
+        </script>
+    </body>
+</html>

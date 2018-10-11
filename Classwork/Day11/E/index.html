@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+<form id="form1">
+    <div id="row-longtitude">
+        <input type='text' name="longtitude" placeholder="Longtitude" />
+    </div>
+    <div id="row-latitude">
+        <input type='text' name="latitude" placeholder="Latitude" />
+    </div>
+    <div id="row-submit">
+        <input id="submit" type="submit" value="submit" />
+        <input id="compare" type="submit" value="Compare to HK" />
+    </div>
+    <div>
+            Sunrise time = <span id="sunrise-time" class="time"></span>
+        <br>Sunset time = <span id="sunset-time" class="time"></span>
+        <br>Sunrise since yesterday = <span id="sunrise-since-yesterday" class="time"></span>
+        <br>Sunset since yesterday = <span id="sunret-since-yesterday" class="time"></span>
+        <br>Daylight length comparing to Hong Kong = <span id='comparison'></span></span>
+    </div>
+</form>
+<form id="form2">
+        <div id="row-country1">
+            <input id='country1' type='text' name="country1" placeholder="Country One" />
+        </div>
+        <div id="row-country2">
+            <input id='country2'  type='text' name="country2" placeholder="Country Two" />
+        </div>
+        <div id="row-submit">
+            <input id="submit2" type="submit" value="submit" />
+        </div>
+        <div>
+                Sunrise time for <span class="country1"></span> = <span id="sunrise-time1" class="time2"></span>
+            <br>Sunset time for <span class="country2"></span> = <span id="sunset-time1" class="time2"></span>
+            <br>Sunrise time for <span class="country1"></span> = <span id="sunrise-time2" class="time2"></span>
+            <br>Sunset time for <span class="country2"></span> = <span id="sunset-time2" class="time2"></span>
+            <br>Sunrise time comparison = <span id='comparison1'></span></span>
+            <br>Sunset time comparison = <span id='comparison2'></span></span>
+        </div>
+    </form>
+<body>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="E.js" type='text/javascript'></script>
+    <script src="F.js" type='text/javascript'></script>
+    <script src="G.js" type='text/javascript'></script>
+</body>
+
+</html>
