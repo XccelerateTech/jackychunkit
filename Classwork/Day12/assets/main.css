@@ -1,0 +1,47 @@
+html, body {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#container{
+    display:flex;
+    justify-content: center;
+    align-content: center;
+}
+
+td {
+    cursor: pointer;
+    border: 1px solid black;
+    height: 100px;
+    width:100px;
+}
+
+
+table {
+    border-spacing: 0px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height:75px;
+    width: 75px;
+    display: none;
+}
+
+.unclickable {
+    cursor: no-drop;
+}
+
+button {
+    margin-top:30px;
+    margin:auto;
+}
+
+#game_console {
+    margin-top:30px;
+    text-align: center;
+}
