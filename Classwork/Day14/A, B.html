@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+    <!--<![endif]-->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <canvas width=1000 height=1000 style='width:10000px;height:10000px' id="canvas">Your browser does not support
+            Canvas</canvas>
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jcanvas/21.0.1/jcanvas.js"></script>
+        <script type='text/javascript' defer>
+            $(function () {
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                ctx.beginPath();
+                ctx.moveTo(20, 20);
+                ctx.lineTo(400, 400);
+                ctx.stroke();
+            })
+            // --------------------------------------------A-------------------------------------------- //
+
+            //vanilla method
+            $(function () {
+                function drawLine(ctx, start, end) {
+                    ctx.beginPath();
+                    ctx.moveTo(start[0], start[1]);
+                    ctx.lineTo(end[0], end[1]);
+                    ctx.stroke();
+                }
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+                drawLine(ctx, [400, 20], [20, 400])
+            })
+
+            //jcanvas method
+            $('canvas').drawLine({
+                strokeStyle: '#000',
+                x1: 400, y1: 20,
+                x2: 20, y2: 400
+            })
+
+            // --------------------------------------------B-------------------------------------------- //
+
+            //vanilla method
+            $(function () {
+                function drawLine(ctx, start, end) {
+                    ctx.beginPath();
+                    ctx.moveTo(start[0], start[1]);
+                    ctx.lineTo(end[0], end[1]);
+                    ctx.stroke();
+                }
+
+                function drawQuadraticCurve(ctx, start, cp1, end) {
+                    ctx.setLineDash([]); // Set it to an empty array to return to solid.
+                    ctx.strokeStyle = 'black';
+                    ctx.beginPath();
+                    ctx.moveTo(start[0], start[1]);
+                    ctx.quadraticCurveTo(cp1[0], cp1[1], end[0], end[1]);
+                    ctx.stroke();
+                }
+
+                const canvas = document.getElementById('canvas');
+                const ctx = canvas.getContext('2d');
+
+                drawLine(ctx, [800, 300], [800, 500]);
+                drawLine(ctx, [800, 500], [600, 500]);
+                drawLine(ctx, [600, 500], [600, 300]);
+                
+                drawQuadraticCurve(ctx,[600,300],[700,150],[800,300]) 
+            })
+
+            //jcanvas method
+            $('canvas').drawPath({
+                strokeStyle: '#000',
+                p1: {
+                    type: 'line',
+                    x1: 800, y1: 300,
+                    x2: 800, y2: 500,
+                    x3: 600, y3: 500,
+                    x4: 600, y4: 300
+                },
+                p2: {
+                    type: 'quadratic',
+                    cx1: 700, cy1: 150,
+                    x2: 800, y2: 300
+                }
+            });
+        </script>
+    </body>
+
+</html>
