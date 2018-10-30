@@ -44,13 +44,31 @@ http.createServer(function(req, res){
 */
 
 /*----------------------better method-----------------------------*/
+/*
+const http = require('http');
+const fs = require('fs');
+
+http.createServer(function(req, res){
+    const dirname = '../../Day8/I(bonus)/'
+    if (req.url == '/') {
+        fs.createReadStream(`${dirname}main.html`).pipe(res);
+    } else if (req.url) {
+        fs.createReadStream(dirname + req.url).pipe(res);
+    } else {
+        res.writeHead(404);
+        res.end();
+    }
+}).listen(8080, '127.0.0.1');
+*/
+
+/*----------------------better method with path-----------------------------*/
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
 http.createServer(function (req, res) {
     if (req.url === '/') {
-        fs.createReadStream(`../../Day8/I(bonus)/main.html`).pipe(res);
+        fs.createReadStream(path.join('..','..','Day8','I(bonus)','main.html')).pipe(res);
     } else if (req.url) {
         fs.createReadStream(path.join('..','..','Day8','I(bonus)',req.url)).pipe(res);
     } else {
