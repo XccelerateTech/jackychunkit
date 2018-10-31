@@ -1,0 +1,3 @@
+export const isPangram = input => {
+    return (input.match(/A|a/) && input.match(/B|b/) && input.match(/C|c/) && input.match(/D|d/) && input.match(/E|e/) && input.match(/F|f/) && input.match(/G|g/) && input.match(/H|h/) &&  input.match(/I|i/) && input.match(/J|j/) && input.match(/K|k/) && input.match(/L|l/) && input.match(/M|m/) && input.match(/N|n/) && input.match(/O|o/) && input.match(/P|p/) && input.match(/Q|q/) && input.match(/R|r/) && input.match(/S|s/) && input.match(/T|t/) && input.match(/U|u/) && input.match(/V|v/) && input.match(/W|w/) && input.match(/X|x/) && input.match(/Y|y/) && input.match(/Z|z/)) ? true : false;
+}
