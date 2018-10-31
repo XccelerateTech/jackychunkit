@@ -14,8 +14,6 @@ class List {
     for (var i = 0; i < input.values.length; i++ ) {
       output.push(input.values[i])
     }
-    this.values = output;
-    return this;
     return new List(output);
   }
   concat(input) {
@@ -28,8 +26,6 @@ class List {
         output.push(this.values[i])
       }
     }
-    this.values = output;
-    return this;
     return new List(output);
   }
   map(operation) {
