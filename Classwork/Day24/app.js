@@ -1,13 +1,14 @@
-let findDir = path => {
-    require('fs').readdir(path, { withFileTypes: true }, (err, files) => {
-        files.forEach(file => {
-            if (file.isDirectory()) {
-                console.log(`${path}${file.name}/ is a directory`);
-                findDir(`${path}${file.name}/`);
-            } else {
-                console.log(`${path}${file.name}/ is a file`);
-            }
-        });
-    });
+const findDir = require('./promise');
+
+async function getName(path) {
+    const files = await findDir(path);
+    files.forEach(file => {
+        if (file.isDirectory()) {
+            console.log(`${path}${file.name}/ is a directory`)
+            getName(`${path}${file.name}/`)
+        } else {
+            console.log(`${path}${file.name}/ is a file`)
+        }
+    })
 }
-findDir('./files/');
+getName('./files/');
