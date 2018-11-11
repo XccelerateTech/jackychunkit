@@ -30,7 +30,7 @@ module.exports = class NoteRouter {
     }
 
     renderListPage(req, res) {
-        this.noteService.list(req.auth.user)
+        return this.noteService.list(req.auth.user)
             .then(notes => {
                 res.render('list', {
                     notes: notes
@@ -44,8 +44,8 @@ module.exports = class NoteRouter {
         let title = req.url.replace(/\/notes\//g, "");
         title = decodeURIComponent(title);
         //if request is main.css or main.js, respond as file but not render
-        (title == 'main.css' || title == 'main.js') ?
-            res.sendFile(path.join(__dirname, 'assets', title)) :   
+        return (title == 'main.css' || title == 'main.js') ?
+            res.sendFile(path.join(__dirname, 'assets', title)) : 
             this.noteService.read(req.auth.user)
                 .then(notes => {
                     //only render the page if any matches the title name
@@ -67,7 +67,7 @@ module.exports = class NoteRouter {
     }
 
     renderCreatePage(req, res) {
-        this.noteService.list(req.auth.user)
+        return this.noteService.list(req.auth.user)
             .then(notes => {
                 let untitleIndex = 1;
                 for (let i = 0; i < notes.length; i++) {
@@ -77,11 +77,11 @@ module.exports = class NoteRouter {
                     index: untitleIndex
                 });
             })
-            // .catch((err) => res.status(500).json(err));
+            .catch((err) => res.status(500).json(err));
     }
 
     getNote(req, res) {
-        this.noteService.list(req.auth.user)
+        return this.noteService.list(req.auth.user)
             .then(notes => res.json(notes))
             .catch(err => res.status(500).json(err));
     }
