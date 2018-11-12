@@ -1,0 +1,12 @@
+<h1 id='list'>List of notes</h1>
+<div class="note_list">
+    {{#each notes}}
+    <div class="each_note title_{{ this.title }}">
+        <a href="/notes/{{ this.title }}"><span>{{ this.title }}</span></a>
+        <br><button class="remove title_{{ this.title }}"><i class="fa fa-trash title_{{ this.title }}" aria-hidden="true"></i></button>
+            <div>
+                {{/each}}
+            </div>
+            <div>
+                <a href="/">Return to Homepage</a>
+                </div>

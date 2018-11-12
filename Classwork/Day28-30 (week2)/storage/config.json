@@ -1,0 +1,12 @@
+{
+    "development": {
+        "userlist": "storage/userlist.json",
+        "notes": "storage/notes.json",
+        "port": 8080
+    },
+    "test": {
+        "notes": "./spec/tests/test.json",
+        "users": "./spec/tests/users.json",
+        "port": 8081
+    }
+}
