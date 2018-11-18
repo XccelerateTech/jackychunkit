@@ -1,5 +1,5 @@
 $(function () {
-    let edited = false;    
+    let edited = false;
     //Propmt User if leaving page without saving
     $(window).bind('beforeunload', function () {
         if (edited)
@@ -27,11 +27,11 @@ $(function () {
         }
     })
 
-    $('textarea').on('keypress, click',() => {
+    $('textarea').on('keypress, click', () => {
         edited = true;
     })
 
-    $('#create').submit(evt => {
+    $('#create').submit(async evt => {
         evt.preventDefault();
         const title = $('input[name=title]').val();
         //Forbid special characters
@@ -39,50 +39,64 @@ $(function () {
             alert(`Special characters should not be included in the name`);
             return;
         }
-        //send a get request to the api to recieve notes info from the server
-        axios.get('/api/notes')
-            .then(res => {
-                //check if title matches any current note title, if match, prompt the user for overwriting
-                if (res.data.some(element => {
-                    return title == element.title;
-                })) {
-                    if (!confirm(`A note with the name "${title}" already exists, Save it with override the previous note your had, proceed?`)) return;
-                }
-                //post request to update the notes
-                axios.post('/api/notes/', {
-                    title: title,
-                    note: $('textarea[name=note]').val()
-                }).then(res => {
+        try {
+            //send a get request to the api to recieve notes info from the server
+            const res = await axios.get('/api/notes')
+            //check if title matches any current note title, if match, prompt the user for overwriting
+            if (res.data.some(element => {
+                return title == element.title;
+            })) {
+                if (confirm(`A note with the name "${title}" already exists, Save it with override the previous note your had, proceed?`)) {
+                    //post request to override the note
+                    await axios.put('/api/notes/', {
+                        title: title,
+                        note: $('textarea[name=note]').val()
+                    })
                     edited = false;
                     window.location = '/';
-                    alert('Uploaded, you will be redirected back')
+                    alert('Uploaded, you will be redirected back');
+                } else {
+                    return;
+                }
+            } else {
+                //post request to add the note
+                await axios.post('/api/notes/', {
+                    title: title,
+                    note: $('textarea[name=note]').val()
                 })
-            })
-            .catch(err => alert(`Unable to establish a connection with server, ${err.message}`));
+                edited = false;
+                window.location = '/';
+                alert('Uploaded, you will be redirected back')
+            }
+        } catch (err) {
+            alert(`Unable to establish a connection with server, ${err.message}`)
+        }
     });
 
-    $('#edit').submit(evt => {
+    $('#edit').submit(async evt => {
         evt.preventDefault();
-        axios.put('/api/notes/', {
-            title: $('#note_title')[0].innerHTML,
-            note: $('textarea[name=note]').val()
-        })
-            .then(res => {
-                edited = false;
-                window.location = '/notes'
-                alert('Edited, you will be redirected back')
+        try {
+            await axios.put('/api/notes/', {
+                title: $('#note_title')[0].innerHTML,
+                note: $('textarea[name=note]').val()
             })
-            .catch(err => alert(`Unable to establish a connection with server, ${err.message}`));
+            edited = false;
+            window.location = '/notes'
+            alert('Edited, you will be redirected back')
+        } catch (err) {
+            alert(`Unable to establish a connection with server, ${err.message}`)
+        }
     });
 
     $('.remove').on('click', evt => {
         if (confirm('Your are removing your note, this action cannot be undone, proceed?'))
-        axios.delete('/api/notes/' + $(evt.target)[0].className.replace(/^(fa fa-trash title_)|(remove title_)/g, ''))
-            .then(res => {
+            try {
+                await axios.delete('/api/notes/' + $(evt.target)[0].className.replace(/^(fa fa-trash title_)|(remove title_)/g, ''));
                 ($(evt.target)[0].tagName == "I") ?
                     $(evt.target).parent().parent().remove() :
                     $(evt.target).parent().remove()
-            })
-            .catch(err => alert(`Unable to establish a connection with server, ${err.message}`));
+            } catch (err) {
+                alert(`Unable to establish a connection with server, ${err.message}`)
+            }
     })
 });
