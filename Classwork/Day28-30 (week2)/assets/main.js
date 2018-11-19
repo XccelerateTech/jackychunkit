@@ -47,7 +47,7 @@ $(function () {
                 return title == element.title;
             })) {
                 if (confirm(`A note with the name "${title}" already exists, Save it with override the previous note your had, proceed?`)) {
-                    //post request to override the note
+                    //put request to override the note
                     await axios.put('/api/notes/', {
                         title: title,
                         note: $('textarea[name=note]').val()
@@ -88,7 +88,7 @@ $(function () {
         }
     });
 
-    $('.remove').on('click', evt => {
+    $('.remove').on('click',async evt => {
         if (confirm('Your are removing your note, this action cannot be undone, proceed?'))
             try {
                 await axios.delete('/api/notes/' + $(evt.target)[0].className.replace(/^(fa fa-trash title_)|(remove title_)/g, ''));

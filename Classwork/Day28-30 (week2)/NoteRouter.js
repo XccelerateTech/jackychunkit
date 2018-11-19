@@ -73,7 +73,7 @@ module.exports = class NoteRouter {
 
     async renderCreatePage(req, res) {
         try {
-            const notes = this.noteService.list(req.auth.user)
+            const notes = await this.noteService.list(req.auth.user)
             let untitleIndex = 1;
             for (let i = 0; i < notes.length; i++) {
                 if (notes[i].title.match(/Untitled \([0-9]+\)/g)) untitleIndex++;
