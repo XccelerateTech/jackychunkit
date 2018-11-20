@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static('assets'))
 app.use(basicAuth({
-    authorizer: AuthChallenger,
+    authorizer: new AuthChallenger(knex(knexConfig)),
     authorizeAsync: true,
     challenge: true,
     realm: 'Notes App'

@@ -4,60 +4,75 @@ module.exports = class NoteService {
     }
 
     async add(title, note, user) {
-        const rows = await this.knex.select('id').from('users').where('users.username', user);
-        if (rows.length === 1) {
-            return this.knex.insert({
-                title: title,
-                content: note,
-                user_id: rows[0].id
-            }).into('notes');
-        } else {
-            throw new Error('Cannot update a note from non-existent user');
+        try {
+            const data = await this.knex.select('id').from('users').where('users.username', user);
+            if (data.length === 1) {
+                return this.knex.insert({
+                    title: title,
+                    content: note,
+                    user_id: data[0].id
+                }).into('notes');
+            } else {
+                throw new Error('Cannot update a note from non-existent user');
+            }
+        } catch (err) {
+            throw err;
         }
     }
 
     async list(user) {
-        if (typeof user !== 'undefined') {
-            const rows = await this.knex.select('notes.id', 'title', 'content').from('notes').innerJoin('users', 'notes.user_id', 'users.id').where('users.username', user);
-            return rows.map(element => ({
-                id: element.id,
-                title: element.title,
-                content: element.content
-            }));
-        } else {
-            const rows = await this.knex.select('users.username', 'notes.id', 'title', 'content').from('notes').innerJoin('users', 'notes.user_id', 'users.id');
-            const result = {};
-            rows.forEach(element => {
-                (typeof result[element.username] === 'undefined') ?
-                    result[element.username] = [] :
-                    result[element.username].push({
-                        id: element.id,
-                        title: element.title,
-                        content: element.content
-                    });
-            });
-            return result;
+        try {
+            if (typeof user !== 'undefined') {
+                const data = await this.knex.select('notes.id', 'title', 'content').from('notes').innerJoin('users', 'notes.user_id', 'users.id').where('users.username', user);
+                return data.map(element => ({
+                    id: element.id,
+                    title: element.title,
+                    content: element.content
+                }));
+            } else {
+                const data = await this.knex.select('users.username', 'notes.id', 'title', 'content').from('notes').innerJoin('users', 'notes.user_id', 'users.id');
+                const result = {};
+                data.forEach(element => {
+                    (typeof result[element.username] === 'undefined') ?
+                        result[element.username] = [] :
+                        result[element.username].push({
+                            id: element.id,
+                            title: element.title,
+                            content: element.content
+                        });
+                });
+                return result;
+            }
+        } catch (err) {
+            throw err;
         }
     }
 
     async update(title, note, user) {
-        const rows = await this.knex.select('id').from('users').where('users.username', user);
-        if (rows.length === 1) {
-            return this.knex('notes').where('title', title).update({
-                content: note,
-            });
-        } else {
-            throw new Error('Cannot update a note that doesnt exist');
+        try {
+            const data = await this.knex.select('id').from('users').where('users.username', user);
+            if (data.length === 1) {
+                return this.knex('notes').where('title', title).update({
+                    content: note,
+                });
+            } else {
+                throw new Error('Cannot update a note that doesnt exist');
+            }
+        } catch (err) {
+            throw err;
         }
-
     }
 
     async remove(title, user) {
-        const rows = await this.knex.select('id').from('users').where('users.username', user);
-        if (rows.length === 1) {
-            return this.knex('notes').where('title', title).del();
-        } else {
-            throw new Error('No such user')
+        try {
+            const data = await this.knex.select('id').from('users').where('users.username', user);
+            if (data.length === 1) {
+                return this.knex('notes').where('title', title).del();
+            } else {
+                throw new Error('No such user')
+            }
+        } catch (err) {
+            throw err;
         }
     }
 }
