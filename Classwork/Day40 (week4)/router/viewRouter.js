@@ -1,6 +1,8 @@
 module.exports = router => {
     this.isLoggedIn = (req, res, next) => {
-        return (req.isAuthenticated()) ? next() : res.redirect('/login');
+        if (req.isAuthenticated()) return next()
+        req.flash('error', 'Please log in');
+        res.redirect('/login');
     }
 
     router.get('/', (req, res) => res.render('index'));
