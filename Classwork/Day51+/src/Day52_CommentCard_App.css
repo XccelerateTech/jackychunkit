@@ -1,0 +1,27 @@
+html,body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#navbar {
+  width:100%;
+  height: 50px;
+  background-color: palegreen;
+}
+
+h3 {
+  margin: 0
+}
+
+#approve {
+  background-color: green;
+}
+
+#reject {
+  background-color: red;
+}
+
+.commentCard {
+  border: 1px solid black
+}
