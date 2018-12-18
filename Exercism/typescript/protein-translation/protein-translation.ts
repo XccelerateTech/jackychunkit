@@ -1,5 +1,5 @@
-class ProteinTranslation {
-    static proteins(rna: string) {
+export default class ProteinTranslation {
+    public static proteins(rna: string) {
         const orginalRna: string = rna;
         let protein: string[] = [];
         let codon: string;
@@ -55,5 +55,3 @@ class ProteinTranslation {
         return protein;
     }
 }
-
-export default ProteinTranslation
