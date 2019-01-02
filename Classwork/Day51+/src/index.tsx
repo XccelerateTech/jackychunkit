@@ -20,11 +20,17 @@ import registerServiceWorker from './registerServiceWorker';
 // );
 
 // =================Day 52 Questioner=================
-import Questioner from './Day52/Questioner/App';
+// import Questioner from './Day52/Questioner/App';
+// ReactDOM.render(
+//   <Questioner question="what is your name" />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Day 52 TicTacToe=================
+import Game from './Day52/TicTacToe/Game'
+
 ReactDOM.render(
-  <Questioner question="what is your name" />,
+  <Game />,
   document.getElementById('root') as HTMLElement
 )
-
-
 registerServiceWorker();
