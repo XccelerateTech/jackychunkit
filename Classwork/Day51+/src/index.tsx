@@ -10,7 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 //   document.getElementById('root') as HTMLElement
 // );
 
-
 // // =================Day 52 Comment Card=================
 // import App from './Day52/CommentCard/App';
 // const list = [{ id: 1, name: 'Sam', comment: `it's good` }, { id: 2, name: 'Altaf', comment: `it's bad` }]
@@ -27,10 +26,32 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 52 TicTacToe=================
-import Game from './Day52/TicTacToe/Game'
+// import Game from './Day52/TicTacToe/Game'
+
+// ReactDOM.render(
+//   <Game />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Day 53 Form=================
+// import Form from './Day53/Form/SimpleForm' /* Simple input box */
+// import Form from './Day53/Form/EssayForm' /* Textarea form */
+// import Form from './Day53/Form/SelectForm' /* Select form */
+// import Form from './Day53/Form/MultipleForm' /* Multiple form */
+
+// ReactDOM.render(
+//   <Form />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Day 53 Clock=================
+import Timer from './Day53/Timer/Timer'
 
 ReactDOM.render(
-  <Game />,
+  <Timer />,
   document.getElementById('root') as HTMLElement
 )
+
+
+//  ==========================================
 registerServiceWorker();
