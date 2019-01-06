@@ -25,14 +25,31 @@ export default class Game extends React.Component<{}, IGameStates> {
             xIsNext: false,
         }
         this.handleClick = this.handleClick.bind(this)
-        this.jumpTo = this.jumpTo.bind(this)
     }
 
     public render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
-
         const moves = history.map((step, move) => {
+            const jumpTo = () => {
+                if (move > 0) {
+                    const jumpTohistory = this.state.history.slice(0, move + 1);
+                    const jumpTocurrent = jumpTohistory[jumpTohistory.length - 1];
+                    const squares = jumpTocurrent.squares.slice();
+                    if (this.calculateWinner(squares)) {
+                        this.setState({
+                            stepHighlight: move,
+                            stepNumber: move,
+                        });
+                        return
+                    }
+                }
+                this.setState({
+                    stepHighlight: move,
+                    stepNumber: move,
+                    xIsNext: (move % 2) === 1,
+                });
+            }
             let desc: string | JSX.Element = move ?
                 'Go to move #' + move :
                 'Go to game start';
@@ -41,7 +58,7 @@ export default class Game extends React.Component<{}, IGameStates> {
             }
             return (
                 <li key={move}>
-                    <button id={'step' + move} onClick={this.jumpTo}>{desc}</button>
+                    <button id={'step' + move} onClick={jumpTo}>{desc}</button>
                 </li>
             );
         });
@@ -92,29 +109,6 @@ export default class Game extends React.Component<{}, IGameStates> {
             } else {
                 this.setState({ xIsNext: !this.state.xIsNext })
             }
-        }
-    }
-
-    private jumpTo(evt: React.MouseEvent<HTMLButtonElement>) {
-        if (evt.target !== null) {
-            const index = Number.parseInt(evt.currentTarget.id.slice(-1), 10);
-            if (index > 0) {
-                const history = this.state.history.slice(0, index + 1);
-                const current = history[history.length - 1];
-                const squares = current.squares.slice();
-                if(this.calculateWinner(squares)) {
-                    this.setState({
-                        stepHighlight: index,
-                        stepNumber: index,
-                    });
-                    return
-                }
-            }
-            this.setState({
-                stepHighlight: index,
-                stepNumber: index,
-                xIsNext: (index % 2) === 1,
-            });
         }
     }
 
