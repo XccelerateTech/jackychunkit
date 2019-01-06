@@ -62,10 +62,18 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 54 TicTacToe=================
-import Game from './Day54/TicTacToe/Game'
+// import Game from './Day54/TicTacToe/Game'
+
+// ReactDOM.render(
+//   <Game />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Day 55 Weekly Assignment 1=================
+import App from './Day55(week1)/Router'
 
 ReactDOM.render(
-  <Game />,
+  <App />,
   document.getElementById('root') as HTMLElement
 )
 
