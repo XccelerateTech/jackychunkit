@@ -26,12 +26,12 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 52 TicTacToe=================
-import Game from './Day52/TicTacToe/Game'
+// import Game from './Day52/TicTacToe/Game'
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root') as HTMLElement
-)
+// ReactDOM.render(
+//   <Game />,
+//   document.getElementById('root') as HTMLElement
+// )
 
 // =================Day 53 Form=================
 // import Form from './Day53/Form/SimpleForm' /* Simple input box */
@@ -52,7 +52,7 @@ ReactDOM.render(
 //   document.getElementById('root') as HTMLElement
 // )
 
-// =================Day 54 Simple Router=================
+// =================Day 54 Router=================
 // import App from './Day54/Router/BasicRouter'
 // import App from './Day54/Router/AdvancedRouter/App'
 
@@ -61,6 +61,13 @@ ReactDOM.render(
 //   document.getElementById('root') as HTMLElement
 // )
 
+// =================Day 54 TicTacToe=================
+import Game from './Day54/TicTacToe/Game'
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root') as HTMLElement
+)
 
 //  ==========================================
 registerServiceWorker();
