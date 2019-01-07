@@ -77,9 +77,10 @@ import registerServiceWorker from './registerServiceWorker';
 //   document.getElementById('root') as HTMLElement
 // )
 
-// // =================Day 56 Redux=================
+// =================Day 56 Redux=================
 // import App from './Day56/BasicRedux/App'
-import App from './Day56/AdvancedRedux/App'
+// import App from './Day56/AdvancedRedux/App'
+import App from './Day56/Structured/index'
 
 ReactDOM.render(
   <App />,
