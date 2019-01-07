@@ -70,7 +70,16 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 55 Weekly Assignment 1=================
-import App from './Day55(week1)/Router'
+// import App from './Day55(week1)/Router'
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// // =================Day 56 Redux=================
+// import App from './Day56/BasicRedux/App'
+import App from './Day56/AdvancedRedux/App'
 
 ReactDOM.render(
   <App />,
