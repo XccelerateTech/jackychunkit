@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 // =================Day 51=================
@@ -88,7 +87,9 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 57 Redux=================
-import App from './Day57/Logger/index'
+// import App from './Day57/Logger/index'
+// import App from './Day57/Redux Thunk/renders/App'
+import App from './Day57/WhosInSpace/renders/App'
 
 ReactDOM.render(
   <App />,
