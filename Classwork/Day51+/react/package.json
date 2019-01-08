@@ -5,24 +5,21 @@
   "dependencies": {
     "@types/enzyme": "^3.1.15",
     "@types/enzyme-adapter-react-16": "^1.0.3",
-    "@types/faker": "^4.1.4",
-    "@types/jest": "^23.3.12",
     "@types/react-redux": "^6.0.12",
     "@types/react-router-dom": "^4.3.1",
-    "@types/redux-logger": "^3.0.6",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
+    "axios": "^0.18.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "faker": "^4.1.0",
-    "jest": "^23.6.0",
     "jest-enzyme": "^7.0.1",
     "react": "^16.7.0",
-    "react-dom": "^16.6.3",
+    "react-dom": "^16.7.0",
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-scripts-ts": "^4.0.8",
+    "react-scripts-ts": "3.1.0",
     "redux": "^4.0.1",
-    "redux-logger": "^3.0.6",
-    "ts-jest": "^23.10.5"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",
@@ -31,15 +28,10 @@
     "eject": "react-scripts-ts eject"
   },
   "devDependencies": {
-    "@types/node": "^10.12.15",
-    "@types/react": "^16.7.17",
+    "@types/jest": "^23.3.12",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
     "@types/react-dom": "^16.0.11",
     "typescript": "^3.2.2"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+  }
 }
