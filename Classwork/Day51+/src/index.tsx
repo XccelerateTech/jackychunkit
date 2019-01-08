@@ -79,13 +79,23 @@ import registerServiceWorker from './registerServiceWorker';
 
 // =================Day 56 Redux=================
 // import App from './Day56/BasicRedux/App'
-// import App from './Day56/AdvancedRedux/App'
-import App from './Day56/Structured/index'
+// // import App from './Day56/AdvancedRedux/App'
+// import App from './Day56/Structured/index'
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Day 59 Jest=================
+// import App from './Day59/Default/App'
+import { Board } from './Day59/TicTacToe/TicTacToe'
 
 ReactDOM.render(
-  <App />,
+  <Board />,
   document.getElementById('root') as HTMLElement
 )
+
 
 //  ==========================================
 registerServiceWorker();
