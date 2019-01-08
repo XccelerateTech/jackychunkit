@@ -1,5 +1,5 @@
 import * as React from 'react';
-import './Day51_App.css';
+import './App.css';
 
 import logo from './logo.png';
 

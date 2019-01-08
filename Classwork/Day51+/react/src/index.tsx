@@ -79,7 +79,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 // =================Day 56 Redux=================
 // import App from './Day56/BasicRedux/App'
-// // import App from './Day56/AdvancedRedux/App'
+// import App from './Day56/AdvancedRedux/App'
 // import App from './Day56/Structured/index'
 
 // ReactDOM.render(
@@ -87,14 +87,22 @@ import registerServiceWorker from './registerServiceWorker';
 //   document.getElementById('root') as HTMLElement
 // )
 
-// =================Day 59 Jest=================
-// import App from './Day59/Default/App'
-import { Board } from './Day59/TicTacToe/TicTacToe'
+// =================Day 57 Redux=================
+import App from './Day57/Logger/index'
 
 ReactDOM.render(
-  <Board />,
+  <App />,
   document.getElementById('root') as HTMLElement
 )
+
+// =================Day 59 Jest=================
+// import App from './Day59/Default/App'
+// import { Board } from './Day59/TicTacToe/TicTacToe'
+
+// ReactDOM.render(
+//   <Board />,
+//   document.getElementById('root') as HTMLElement
+// )
 
 
 //  ==========================================
