@@ -18,7 +18,8 @@ const mapDispatchToProp = (dispatch: (Dispatch<LinkActions>)) => {
         clearLink: () => dispatch(LinkActionMethods.clearLink()),
         reloadLink: async () => {
             try {
-                dispatch(LinkActionMethods.loadLinkSuccess(await LinkActionMethods.loadLink()))
+                const links = await LinkActionMethods.loadLink()
+                dispatch(LinkActionMethods.loadLinkSuccess(links))
             } catch (err) {
                 dispatch(LinkActionMethods.loadLinkFailure())
             }

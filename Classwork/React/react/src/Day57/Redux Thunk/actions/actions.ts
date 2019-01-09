@@ -38,7 +38,7 @@ export default class LinkActionMethods {
             }));
             return links
         } catch (err) {
-            return null
+            throw err
         }
     }
 }
