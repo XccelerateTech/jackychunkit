@@ -1,5 +1,5 @@
 {
-  "name": "ClassworkApp",
+  "name": "classwork-app",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -7,8 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "@types/react-navigation": "^3.0.1",
+    "axios": "^0.18.0",
     "react": "16.6.3",
-    "react-native": "0.57.8"
+    "react-native": "0.57.8",
+    "react-native-elements": "^0.19.1",
+    "react-native-gesture-handler": "^1.0.12",
+    "react-navigation": "^3.0.9"
   },
   "devDependencies": {
     "@types/jest": "^23.3.12",
