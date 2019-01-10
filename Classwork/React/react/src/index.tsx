@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import registerServiceWorker from './registerServiceWorker';
@@ -88,8 +89,16 @@ import registerServiceWorker from './registerServiceWorker';
 
 // =================Day 57 Redux=================
 // import App from './Day57/Logger/index'
-import App from './Day57/Redux Thunk/renders/App'
+// import App from './Day57/Redux Thunk/renders/App'
 // import App from './Day57/WhosInSpace/renders/App'
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Day 58 Authentication=================
+import App from './Day58/frontend/App'
 
 ReactDOM.render(
   <App />,
