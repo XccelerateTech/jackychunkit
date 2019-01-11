@@ -98,12 +98,12 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 58 Authentication=================
-import App from './Day58/frontend/App'
+// import App from './Day58/frontend/App'
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root') as HTMLElement
-)
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root') as HTMLElement
+// )
 
 // =================Day 59 Jest=================
 // import App from './Day59/Default/App'
@@ -114,6 +114,13 @@ ReactDOM.render(
 //   document.getElementById('root') as HTMLElement
 // )
 
+// =================Day 60 Weekly Assignment 1=================
+import App from './Day60(week2)/frontend/App'
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('root') as HTMLElement
+)
 
 //  ==========================================
 registerServiceWorker();
