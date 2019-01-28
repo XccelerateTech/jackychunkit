@@ -115,12 +115,28 @@ import registerServiceWorker from './registerServiceWorker';
 // )
 
 // =================Day 60 Weekly Assignment 1=================
-import App from './Day60(week2)/frontend/App'
+// import App from './Day60(week2)/frontend/App'
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root') as HTMLElement
+// )
+
+// =================Facebook Login App=================
+import App from './oauth/App'
 
 ReactDOM.render(
   <App />,
   document.getElementById('root') as HTMLElement
 )
+
+// =================Testing Shit Out=================
+// import App from './testStuff/App'
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root') as HTMLElement
+// )
 
 //  ==========================================
 registerServiceWorker();

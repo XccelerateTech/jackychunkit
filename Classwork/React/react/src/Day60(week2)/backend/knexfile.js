@@ -1,4 +1,5 @@
 // Update with your config settings.
+// tslint:disable
 require('dotenv').config();
 
 module.exports = {
